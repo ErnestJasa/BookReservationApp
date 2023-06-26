@@ -1,0 +1,50 @@
+﻿@using ExamTaskBookReservation.Models.Domain
+@model IEnumerable<Category>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container">
+    <div class=" mt-5 ">
+        <div class="ml-auto my-2 w-25">
+
+            <a asp-action="Add" asp-controller="Category" class="my-2 btn-success btn">Add Category</a>
+        </div>
+
+        <table class="table-striped mx-auto table w-75">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-center">
+                        <h6>
+                            Category Name
+                        </h6>
+                    </th>
+                    <th scope="col" class="text-center">
+                        <h6>
+                            Action
+                        </h6>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var category in Model)
+                {
+                    <tr>
+                        <th class="text-center">
+                            <h5>
+                                @category.CategoryName
+                            </h5>
+                        </th>
+                        <th class="text-center">
+                            <a asp-controller="Category" asp-action="Edit" asp-route-id="@category.CategoryId" class="m-2 btn-info btn-sm">Edit</a>
+                           
+                             <a  asp-action="Delete" asp-controller="Category" asp-route-id="@category.CategoryId"  type="submit" class="m-2 btn-danger btn-sm">Delete</a>
+                            
+                        </th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

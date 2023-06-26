@@ -1,0 +1,76 @@
+﻿@using ExamTaskBookReservation.Models.ViewModels.BookViewModels;
+@model IEnumerable<BookVM>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+
+@*
+    How to convert byte array to image for display
+https://www.c-sharpcorner.com/article/mvc-display-image-from-byte-array/
+*@
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <form asp-action="index" method="get">
+            <div class="input-group w-75 m-auto p-4">
+                <div class="form-outline p-1">
+                    <input name="SearchString" value="@ViewData["CurrentFilter"]" type="text" id="form1" class="form-control" />
+                    <label class="form-label" for="form1">Search</label>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+        @if (@ViewData["CurrentFilter"] is not null)
+        {
+            <a class="ms-3" asp-action="index">Back to full list</a>            
+        }
+        <div class="row">
+            @if (Model.Count() == 0)
+            {
+                <div>
+                    <h2>Nothing found</h2>
+                </div>
+            }
+            <div class="row">
+                @foreach (var book in Model)
+                {
+                    <div class="col-md-4 mb-4 d-flex align-items-stretch">
+                        <div class="card">
+                            <div class="bg-image overlay">
+                                @if (book.BookImage is null)
+                                {
+                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(132).webp" class="card-img-top "
+                                         alt="">
+
+                                }
+                                else
+                                {
+                                    <img src="@book.BookImage" class="card-img-top "
+                                         alt="">
+                                }
+                            </div>
+                            <div class="card-body">
+                                <small class="text-muted">@book.Category.CategoryName</small>
+                                <h4 class="card-title">@book.Title</h4>
+                                <h6 class="text-muted">@book.Author</h6>
+                                <p class="card-text">@book.Description fdasdfsdfgerrrrrrrrtttjujkyuktiuykuiThe enthralling, often surprising story of John Adams, one of the most important and fascinating Americans who ever lived. </p>
+                            </div>
+                            <div class="d-flex justify-content-between m-3">
+                                <a asp-controller="book" asp-action="detail" asp-route-id="@book.BookId" type="button" class="btn btn-md btn-outline-secondary">View</a>
+                                    <a type="button" asp-controller="book" asp-action="Edit" asp-route-id="@book.BookId" class="btn btn-md btn-outline-secondary">Edit</a>
+                                @if (User.IsInRole("admin"))
+                                {
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

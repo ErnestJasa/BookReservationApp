@@ -1,0 +1,52 @@
+﻿@using ExamTaskBookReservation.Models.ViewModels.BookViewModels
+@model CreateBookVM
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<form method="post" asp-action="Add" enctype="multipart/form-data">
+    @* to upload images need to add this - enctype="multipart/form-data" to the form*@
+    <div class="form-group">
+        <label asp-for="Title">Title</label>
+        <input asp-for="Title" class="form-control" placeholder="Title...">
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description">Description</label>
+        <input asp-for="Description" class="form-control" placeholder="Description...">
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Author">Author</label>
+        <input asp-for="Author" class="form-control" placeholder="Author...">
+        <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ISBN">ISBN</label>
+        <input asp-for="ISBN" class="form-control" placeholder="ISBN...">
+        <span asp-validation-for="ISBN" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PageCount">PageCount</label>
+        <input type="number" asp-for="PageCount" class="form-control" placeholder="PageCount...">
+        <span asp-validation-for="PageCount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BookImage">Image</label>
+        <input asp-for="BookImage" type="file" class="form-control" placeholder="Image...">
+        <span asp-validation-for="BookImage" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CategoryId">Category</label>
+        <select asp-for="CategoryId" class="form-select">
+            <option selected disabled>--Select--</option>
+            @foreach (var category in ViewBag.Categories)
+            {
+                <option value="@category.CategoryId">@category.CategoryName</option>
+            }
+        </select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,56 @@
+﻿@using ExamTaskBookReservation.Models.ViewModels.BookViewModels;
+@model BookVM
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*<div class="container">
+
+    <!-- Portfolio Item Heading -->
+    <h1 class="my-4">
+        Page Heading
+        <small>Secondary Text</small>
+    </h1>
+
+    <!-- Portfolio Item Row -->
+    <div class="row">
+
+        <div class="col-md-8">
+            <img class="img-fluid" src="@Model.BookImage" alt="">
+        </div>
+
+        <div class="col-md-4">
+            <h3 class="my-3">@Model.Title</h3>
+            <p>@Model.Description</p>
+            <p>@Model.Category.CategoryName</p>
+        </div>
+
+    </div>
+</div>
+*@
+<!--Main layout-->
+<main class="mt-5">
+    <div class="container">
+        <!--Section: Content-->
+        <section>
+            <div class="row">
+                <div class="col-md-6 gx-5 mb-4">
+                    <div class="bg-image overlay shadow-2-strong rounded-5 w-75">
+                        <img src="@Model.BookImage" class="img-fluid" />
+                    </div>
+                </div>
+
+                <div class="col-md-6 gx-5 mb-4">
+                    <small class="text-muted">@Model.Category.CategoryName</small>
+                    <h4><strong>@Model.Title</strong></h4>
+                    <h5>@Model.Author</h5>                  
+                    <p class="text-muted">
+                        @Model.Description
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!--Section: Content-->
+    </div>
+</main>

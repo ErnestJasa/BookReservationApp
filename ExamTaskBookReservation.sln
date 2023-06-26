@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamTaskBookReservation", "ExamTaskBookReservation\ExamTaskBookReservation.csproj", "{741E4091-0B11-4119-85FD-98C7185EDDFD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{741E4091-0B11-4119-85FD-98C7185EDDFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{741E4091-0B11-4119-85FD-98C7185EDDFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{741E4091-0B11-4119-85FD-98C7185EDDFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{741E4091-0B11-4119-85FD-98C7185EDDFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12A33FDC-5F71-4CA0-893B-9817BA2684A2}
+	EndGlobalSection
+EndGlobal
